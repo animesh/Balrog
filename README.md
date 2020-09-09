@@ -1,7 +1,40 @@
+# Setting up for Pseudomonas 
+
+## OS: WSL Ubuntu 20.04 
+```
+git clone https://github.com/animesh/Balrog
+mkdir -p /home/animeshs/content/mmseqs2
+```
+
+# notebook 
+<!-- badges: start -->
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/animesh/Balrog/blob/master/notebooks/Balrog_0.3.1.ipynb)
+<!--badges: end -->
+```
+replace /content -> /home/animeshs/content
+```
+
+[colab local setup](https://research.google.com/colaboratory/local-runtimes.html)
+```
+pip install jupyter_http_over_ws
+jupyter serverextension enable --py jupyter_http_over_ws
+jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
+```
+
+## Check in CMD with [mmseqs](https://mmseqs.com/)
+[Download](https://mmseqs.com/latest/mmseqs-win64.zip)
+[Manual](https://mmseqs.com/latest/userguide.pdf)
+
+```
+cd L:\promec\Animesh\mmseqs-win64\mmseqs>
+mmseqs.bat easy-search z:\Pseudomonas\Aas-gDNA1-W2-PaE_S8_L001_R.contigs.fasta  z:\Pseudomonas\Aas-gDNA1-W2-PaE_S8_L001_R.contigs.fasta alnResult tmp --search-type 3  --split-memory-limit 96G
+```
+
 # Bacterial Annotation by Learned Representation Of Genes
+```
 
 <!-- badges: start -->
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/salzberg-lab/Balrog/blob/master/notebooks/Balrog_0.3.1.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/animesh/Balrog/blob/master/notebooks/Balrog_0.3.1.ipynb)
 <!--badges: end -->
 
 
