@@ -21,10 +21,38 @@ jupyter serverextension enable --py jupyter_http_over_ws
 jupyter notebook --NotebookApp.allow_origin='https://colab.research.google.com' --port=8888 --NotebookApp.port_retries=0
 ```
 
-## Check in CMD with [mmseqs](https://mmseqs.com/)
+## Check in CMD
+[sourmash](https://github.com/dib-lab/sourmash)
+[Manual](https://sourmash.readthedocs.io/en/latest/command-line.html#an-example)
+[Blog](http://ivory.idyll.org/blog/2020-sourmash-gtdb-oddities.html)
+```
+pip install sourmash
+cd Z:\Pseudomonas
+FOR /F  %i in ('dir /b *.contigs.fasta') do sourmash compute -k 31 %i
+FOR /F  %i in ('dir /b *.sig') do sourmash compare -p 24 %i -o *i.cmp
+cat *cmp > cmp
+sourmash plot cmp --labels
+```
+
+[ngless](https://github.com/ngless-toolkit/ngless)
+[Manual](https://ngless.embl.de/tutorial-gut-metagenomics.html#)
+```
+conda install -c bioconda ngless 
+ngless pseudomonas.ngl
+```
+
+[GGD](https://gogetdata.github.io/quick-start.html)
+```
+conda config --add channels ggd-genomics
+conda config --add channels bioconda
+conda install -c bioconda ggd
+ggd search reference genome -s Pseudomonas_aeroginosa
+```
+
+
+[mmseqs](https://mmseqs.com/)
 [Download](https://mmseqs.com/latest/mmseqs-win64.zip)
 [Manual](https://mmseqs.com/latest/userguide.pdf)
-
 ```
 cd L:\promec\Animesh\mmseqs-win64\mmseqs>
 mmseqs.bat easy-search z:\Pseudomonas\Aas-gDNA1-W2-PaE_S8_L001_R.contigs.fasta  z:\Pseudomonas\Aas-gDNA1-W2-PaE_S8_L001_R.contigs.fasta alnResult tmp --search-type 3  --split-memory-limit 96G
